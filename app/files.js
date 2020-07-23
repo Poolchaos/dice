@@ -1,6 +1,7 @@
 
+// specify components
 
-const files = [{
-  type: 'js',
-  path: 'app/components/templates/layout.js'
-}];
+const files = [
+  'app/components/templates/layout.js',
+  'app/components/molecules//count/count.js'
+];

@@ -5,10 +5,8 @@ class Layout extends ComponentBase {
 
   constructor() {
     super();
-    console.log(' ::>> Root component created ');
     super.init();
   }
-
 }
 
 customElements.define('d-layout', Layout);

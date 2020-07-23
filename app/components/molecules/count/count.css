@@ -1,0 +1,21 @@
+:root {  
+  --white: #ffffff;
+  --gray: #1b1b1b;
+}
+
+.cart {
+  display: flex;
+  float: right;
+}
+
+.count {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  background: var(--white);
+  color: var(--gray);
+  margin: 0 5px;
+  font-weight: bold;
+  text-align: center;
+}

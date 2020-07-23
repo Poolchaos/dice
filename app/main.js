@@ -15,17 +15,7 @@ function createScript(path) {
 }
 
 function includeFiles() {
-  files.forEach(file => {
-    switch(file.type) {
-      case 'js':
-        createScript(file.path);
-        break;
-      case 'css': 
-        break;
-      default:
-        break;
-    }
-  });
+  files.forEach(file => createScript(file));
 }
 
 (function () {

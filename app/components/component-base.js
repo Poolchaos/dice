@@ -17,7 +17,7 @@ class ComponentBase extends HTMLElement {
   }
 
   init() {
-    this.shadow = this.attachShadow({mode: 'closed'});
+    this.shadow = this.attachShadow({ mode: 'closed' });
     this.loadView();
   }
 

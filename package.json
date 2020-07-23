@@ -1,0 +1,26 @@
+{
+  "name": "dice",
+  "version": "1.0.0",
+  "description": "Are you looking for something? We have it.",
+  "main": "app/main.js",
+  "scripts": {
+    "test": "todo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Poolchaos/dice.git"
+  },
+  "keywords": [
+    "shopping",
+    "cart"
+  ],
+  "author": "Phillip-Juan van der Berg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Poolchaos/dice/issues"
+  },
+  "homepage": "https://github.com/Poolchaos/dice#readme",
+  "devDependencies": {
+    "jslint": "^0.12.1"
+  }
+}

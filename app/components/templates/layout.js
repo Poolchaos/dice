@@ -1,5 +1,6 @@
 class Layout extends HTMLElement {
 
+  static view = 'app/components/templates/layout.html';
   static styles = 'app/components/templates/layout.css';
 
   constructor() {
@@ -23,26 +24,22 @@ class Layout extends HTMLElement {
 
   init() {
     this.shadow = this.attachShadow({mode: 'closed'});
-    this.createSlot('header');
-    this.createSlot('content');
+    this.loadView();
     this.addStyles();
   }
 
-  createSlot(name) {
-    let wrapper = document.createElement('div');
-    wrapper.setAttribute('class', name);
-
-    let slot = document.createElement('slot');
-    slot.setAttribute('name', name);
-
-    wrapper.appendChild(slot);
-    this.shadow.appendChild(wrapper);
+  async loadView() {
+    let template = await RequestService.get(Layout.view);
+    this.shadow.innerHTML = template;
   }
 
-  addStyles() {
+  async addStyles() {
     let link = document.createElement('link');
     link.setAttribute('rel', 'stylesheet');
     link.setAttribute('href', Layout.styles);
+
+    let styles = await RequestService.get(Layout.styles);
+    link.innerHTML += styles;
     this.shadow.appendChild(link);
   }
 }

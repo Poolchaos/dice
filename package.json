@@ -4,6 +4,7 @@
   "description": "Are you looking for something? We have it.",
   "main": "app/main.js",
   "scripts": {
+    "start": "node web-server.js",
     "test": "todo"
   },
   "repository": {
@@ -21,6 +22,10 @@
   },
   "homepage": "https://github.com/Poolchaos/dice#readme",
   "devDependencies": {
-    "jslint": "^0.12.1"
+    "fs": "0.0.1-security",
+    "http": "0.0.1-security",
+    "jslint": "^0.12.1",
+    "path": "^0.12.7",
+    "require": "^2.4.20"
   }
 }

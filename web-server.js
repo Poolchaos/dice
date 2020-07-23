@@ -18,11 +18,14 @@ function requestHandler(req, res) {
     fs.readFile(content, function(err,contents) {
       if (!err) {
         res.end(contents);
-      } else {
-        console.dir(err);
-      };
+      }
+      //  else {
+      //   console.dir(err);
+      // };
     });
 };
  
-http.createServer(requestHandler).listen(port);
+http.createServer(requestHandler)
+  .listen(port);
+
 console.log('Server started. Listening on ', port);

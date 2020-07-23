@@ -6,11 +6,12 @@
 .cart {
   display: flex;
   float: right;
+  font-size: 14px;
 }
 
 .count {
   display: inline-block;
-  height: 20px;
+  height: 17px;
   width: 20px;
   border-radius: 10px;
   background: var(--white);

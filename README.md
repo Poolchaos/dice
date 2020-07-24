@@ -1,1 +1,2 @@
 # Dice
+todo: add favicon

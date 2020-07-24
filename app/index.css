@@ -1,14 +1,6 @@
-:root {  
-  --red: #a2000d;
-  --gray: #1b1b1b;
-  --white: #ffffff;
-}
-
 html, body {
   margin: 0;
   padding: 0;
-  background: var(--gray);
   font-family: Arial;
-  color: var(--white);
 }
 

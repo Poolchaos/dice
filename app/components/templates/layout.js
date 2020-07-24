@@ -1,7 +1,7 @@
 class Layout extends ComponentBase {
 
-  view = 'app/components/templates/layout.html';
-  styles = 'app/components/templates/layout.css';
+  VIEW = 'app/components/templates/layout.html';
+  STYLES = 'app/components/templates/layout.css';
 
   constructor() {
     super();

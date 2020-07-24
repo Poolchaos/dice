@@ -1,19 +1,21 @@
 class ComponentBase extends HTMLElement {
 
+  SHARED_STYLES = 'app/shared/theme.css';
+
   constructor() {
     super();
   }
   
   connectedCallback() {
-    console.log(' ::>> connectedCallback ');
+    console.log(`Not implemented in '${this.tagName.toLowerCase()}'. Create connectedCallback() to override.`);
   }
 
   disconnectedCallback() {
-    console.log(' ::>> disconnectedCallback ');
+    console.log(`Not implemented in '${this.tagName.toLowerCase()}'. Create disconnectedCallback() to override.`);
   }
 
   attributeChangedCallback(attrName, oldVal, newVal) {
-    console.log(' ::>> attributeChangedCallback ', { attrName, oldVal, newVal });
+    console.log(`Not implemented in '${this.tagName.toLowerCase()}'. Create attributeChangedCallback() to override.`, { attrName, oldVal, newVal });
   }
 
   init() {
@@ -22,24 +24,28 @@ class ComponentBase extends HTMLElement {
   }
 
   async loadView() {
-    console.log(' ::>> this >>>> ', { this: this });
-    if (!this.view) {
+    if (!this.VIEW) {
       console.error('No view has been specified');
       return;
     }
-    let template = await RequestService.get(this.view);
+    let template = await RequestService.get(this.VIEW);
     this.shadow.innerHTML = template;
     this.addStyles();
   }
 
   async addStyles() {
-    if (!this.styles) {
+    if (!this.STYLES) {
       console.warn('No styles has been specified');
       return;
     }
+    this.createLink(this.SHARED_STYLES);
+    this.createLink(this.STYLES);
+  }
+
+  createLink(path) {
     let link = document.createElement('link');
     link.setAttribute('rel', 'stylesheet');
-    link.setAttribute('href', this.styles);
+    link.setAttribute('href', path);
     this.shadow.appendChild(link);
   }
 }

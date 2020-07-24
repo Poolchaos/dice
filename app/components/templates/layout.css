@@ -1,14 +1,5 @@
-:root {  
-  --red: #a2000d;
-}
-
-.container {
-  padding: 20px 30px;
-}
-
 .header {
   display: flex;
   align-content: center;
-  width: calc(100% - 60px);
-  background: var(--red);
+  width: var(--content-width);
 }

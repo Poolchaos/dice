@@ -1,0 +1,30 @@
+/*------------------------------------*\
+  #THEME SETTINGS
+\*------------------------------------*/
+
+:root {
+  /*  ---- colors ----  */
+  --red: #a2000d;
+  --gray: #1b1b1b;
+  --white: #ffffff;
+  
+  /*  ---- others ----  */
+  --content-width: calc(100% - 60px);
+}
+
+/*------------------------------------*\
+  #THEME CLASSES
+\*------------------------------------*/
+.gray-bg {
+  background: var(--gray);
+  color: var(--white);
+}
+
+.red-bg {
+  background: var(--red);
+  color: var(--white);
+}
+
+.container {
+  padding: 20px 30px;
+}

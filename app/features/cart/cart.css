@@ -1,0 +1,12 @@
+.cart__head {
+  padding: 20px 0;
+  width: 100%;
+}
+
+.cart__head--left {
+  float: left;
+}
+
+.cart__head--right {
+  float: right;
+}

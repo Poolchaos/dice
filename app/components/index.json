@@ -1,4 +1,5 @@
 [
   "app/components/templates/layout.js",
-  "app/components/molecules/count.js"
+  "app/components/molecules/count/count.js",
+  "app/components/molecules/breadcrumbs/breadcrumbs.js"
 ]

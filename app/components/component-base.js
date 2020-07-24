@@ -1,6 +1,8 @@
 class ComponentBase extends HTMLElement {
 
   SHARED_STYLES = 'app/shared/theme.css';
+  shadow;
+  rootElement;
 
   constructor() {
     super();
@@ -19,9 +21,9 @@ class ComponentBase extends HTMLElement {
     console.log(`attributeChangedCallback nNot implemented in '${this.tagName.toLowerCase()}'. Create attributeChangedCallback() to override.`, { attrName, oldVal, newVal });
   }
 
-  init() {
-    this.shadow = this.attachShadow({ mode: 'closed' });
-    this.loadView();
+  async init() {
+    this.shadow = this.attachShadow({ mode: 'open' });
+    await this.loadView();
   }
 
   async loadView() {
@@ -41,6 +43,7 @@ class ComponentBase extends HTMLElement {
     }
     this.createLink(this.SHARED_STYLES);
     this.createLink(this.STYLES);
+    this.rootElement = this.shadow.children[0];
   }
 
   createLink(path) {
@@ -48,5 +51,9 @@ class ComponentBase extends HTMLElement {
     link.setAttribute('rel', 'stylesheet');
     link.setAttribute('href', path);
     this.shadow.appendChild(link);
+  }
+
+  getElements(selector) {
+    return this.rootElement;
   }
 }

@@ -1,7 +1,7 @@
 class Count extends ComponentBase {
 
-  VIEW = 'app/components/molecules/count.html';
-  STYLES = 'app/components/molecules/count.css';
+  VIEW = 'app/components/molecules/count/count.html';
+  STYLES = 'app/components/molecules/count/count.css';
 
   constructor() {
     super();

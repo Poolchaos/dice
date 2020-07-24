@@ -1,6 +1,5 @@
 .breadcrumb {
   padding: 10px;
-  background: var(--dark-gray);
 }
 
 .breadcrumb__link {
@@ -8,9 +7,9 @@
 }
 
 .breadcrumb__arrow {
+  display: inline-block;
   width: 20px;
   height: 20px;
-  display: inline-block;
   margin: 0 5px 0 10px;
 }
 
@@ -21,5 +20,3 @@
 .breadcrumb .breadcrumb__arrow:last-child {
   display: none;
 }
-
-/* todo: clean up this file */

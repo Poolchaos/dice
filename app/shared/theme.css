@@ -22,6 +22,11 @@
   color: var(--white);
 }
 
+.dark-gray-bg {
+  background: var(--dark-gray);
+  color: var(--white);
+}
+
 .red-bg {
   background: var(--red);
   color: var(--white);

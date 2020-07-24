@@ -1,6 +1,7 @@
 class ComponentBase extends HTMLElement {
 
-  SHARED_STYLES = 'app/shared/theme.css';
+  THEME_STYLES = 'app/shared/theme.css';
+  SHARED_STYLES = 'app/shared/globals.css';
   shadow;
   rootElement;
 
@@ -42,6 +43,7 @@ class ComponentBase extends HTMLElement {
       return;
     }
     this.createLink(this.SHARED_STYLES);
+    this.createLink(this.THEME_STYLES);
     this.createLink(this.STYLES);
     this.rootElement = this.shadow.children[0];
   }
@@ -54,6 +56,19 @@ class ComponentBase extends HTMLElement {
   }
 
   getElements(selector) {
-    return this.rootElement;
+    let children = this.shadow.children;
+
+    for(var child of children) {
+      
+      if (child.id === selector) {
+        return child;
+      }
+
+      let node = child.querySelector('#' + selector)
+      if (node) {
+        return node;
+      }
+    }
+    console.warn(`Element with selector '${selector}' not found.`);
   }
 }

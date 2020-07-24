@@ -1,7 +1,8 @@
 class RequestService {
   static RESOURCES = {
     CSS: [
-      { path: 'app/shared/theme.css' }
+      'app/shared/theme.css',
+      'app/shared/globals.css'
     ],
     JS: [
       { path: 'app/components/index.json',  config: true },
@@ -23,7 +24,7 @@ class RequestService {
   }
   
   static loadResources() {
-    RequestService.RESOURCES.CSS.forEach(file => RequestService.add.style(file.path));
+    RequestService.RESOURCES.CSS.forEach(file => RequestService.add.style(file));
     RequestService.RESOURCES.JS.forEach(file => RequestService.loadJSResource(file));
   }
   

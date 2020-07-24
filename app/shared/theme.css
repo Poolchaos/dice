@@ -17,6 +17,12 @@
 /*------------------------------------*\
   #THEME CLASSES
 \*------------------------------------*/
+
+.red-bg {
+  background: var(--red);
+  color: var(--white);
+}
+
 .gray-bg {
   background: var(--gray);
   color: var(--white);
@@ -27,19 +33,7 @@
   color: var(--white);
 }
 
-.red-bg {
-  background: var(--red);
+.black-bg {
+  background: var(--black);
   color: var(--white);
-}
-
-.wrapper {
-  width: 100%;
-}
-
-.container {
-  padding: 20px 30px;
-}
-
-.rounded {
-  border-radius: 5px;
 }

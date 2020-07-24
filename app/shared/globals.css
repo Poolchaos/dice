@@ -1,0 +1,34 @@
+
+.wrapper {
+  width: 100%;
+}
+
+.container {
+  padding: 20px 30px;
+}
+
+.container-small {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 0 10px;
+}
+
+.rounded {
+  border-radius: 5px;
+}
+
+.hoverable {
+  cursor: pointer;
+}
+
+.centered {
+  text-align: center;
+}
+
+.h-centered {
+  align-self: center;
+}
+
+.underlined {
+  text-decoration: underline;;
+}

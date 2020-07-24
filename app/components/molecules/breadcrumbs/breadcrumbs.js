@@ -38,7 +38,7 @@ class Breadcrumbs extends ComponentBase {
       let arrow = document.createElement('div');
       arrow.className = 'breadcrumb__arrow';
 
-      let breadcrumbs = super.getElements('#breadcrumb');
+      let breadcrumbs = super.getElements('breadcrumb');
       if (breadcrumbs) {
         breadcrumbs.appendChild(node);
         breadcrumbs.appendChild(arrow);

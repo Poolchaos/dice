@@ -1,11 +1,11 @@
 class RequestService {
-  
-  static resources = [
-    'app/shared/theme.css',
+  static FILE_TYPES = { JS: 'js', CSS: 'css' };
+  static RESOURCES = [
+    { path: 'app/shared/theme.css', type: 'css' },
 
     // 'app/components/component-base.js',
-    'app/components/templates/layout.js',
-    'app/components/molecules/count/count.js'
+    { path: 'app/components/templates/layout.js', tageName: 'z-layout', type: 'js' },
+    { path: 'app/components/molecules/count/count.js', tagName: 'z-count', type: 'js' }
   ];
 
   static get(url) {
@@ -25,15 +25,16 @@ class RequestService {
   }
   
   static includeFiles() {
-    RequestService.resources.forEach(file => RequestService.createScript(file));
+    RequestService.RESOURCES.forEach(file => RequestService.loadResource(file));
   }
   
-  static createScript(path) {
+  static loadResource(file) {
 
-    if (path.indexOf('.js') >= 0) {
-      RequestService.add.script(path);
-    } else if (path.indexOf('.css') >= 0) {
-      RequestService.add.style(path);
+    if (file.type === RequestService.FILE_TYPES.JS) {
+      RequestService.add.script(file.path);
+
+    } else if (file.type === RequestService.FILE_TYPES.CSS) {
+      RequestService.add.style(file.path);
     }
   }
 

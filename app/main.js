@@ -1,6 +1,6 @@
 (function () {
   console.log(' ::>> Logging method');
-  RequestService.includeFiles();
+  RequestService.loadResources();
 
 
 })();

@@ -1,17 +1,16 @@
 class RequestService {
-  static FILE_TYPES = { JS: 'js', CSS: 'css' };
-  static RESOURCES = [
-    { path: 'app/shared/theme.css', type: 'css' },
-
-    // 'app/components/component-base.js',
-    { path: 'app/components/templates/layout.js', tageName: 'z-layout', type: 'js' },
-    { path: 'app/components/molecules/count/count.js', tagName: 'z-count', type: 'js' }
-  ];
+  static RESOURCES = {
+    CSS: [
+      { path: 'app/shared/theme.css' }
+    ],
+    JS: [
+      { path: 'app/components/index.json',  config: true },
+      { path: 'app/features/index.json',    config: true }
+    ]
+  };
 
   static get(url) {
-
     return new Promise((resolve, reject) => {
-    
       let xhr = new XMLHttpRequest();
       xhr.onreadystatechange = function() {
           if (xhr.readyState == XMLHttpRequest.DONE) {
@@ -20,21 +19,20 @@ class RequestService {
       }
       xhr.open('GET',  url, true);
       xhr.send(null);
-
-    })
+    });
   }
   
-  static includeFiles() {
-    RequestService.RESOURCES.forEach(file => RequestService.loadResource(file));
+  static loadResources() {
+    RequestService.RESOURCES.CSS.forEach(file => RequestService.add.style(file.path));
+    RequestService.RESOURCES.JS.forEach(file => RequestService.loadJSResource(file));
   }
   
-  static loadResource(file) {
+  static loadJSResource(file) {
 
-    if (file.type === RequestService.FILE_TYPES.JS) {
-      RequestService.add.script(file.path);
-
-    } else if (file.type === RequestService.FILE_TYPES.CSS) {
-      RequestService.add.style(file.path);
+    if (file.config) {
+      RequestService.getConfigResource(file.path);
+    } else {
+      RequestService.add.script(file);
     }
   }
 
@@ -54,6 +52,15 @@ class RequestService {
       el.setAttribute('href', path);
 
       document.head.appendChild(el);
+    }
+  }
+
+  static async getConfigResource(path) {
+    const resp = await RequestService.get(path);
+    const resources = JSON.parse(resp);
+    
+    if (Array.isArray(resources)) {
+      resources.forEach(entry => RequestService.loadJSResource(entry));
     }
   }
 }

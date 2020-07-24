@@ -13,14 +13,16 @@
 
 <body class="gray-bg">
 
-    <d-layout>
-      <span slot="header">ORDER<b>FORM</b></span>
+  <d-layout>
+    <div slot="header" class="wrapper">
+      <span>ORDER<b>FORM</b></span>
       <d-count slot="header"></d-count>
+    </div>
 
-      <div slot="content">
-        my content test 2
-      </div>
-    </d-layout>
+    <div slot="content">
+      <d-cart></d-cart>
+    </div>
+  </d-layout>
 
   <script type="text/javascript" src="app/components/component-base.js"></script>
   <script type="text/javascript" src="app/services/request-service.js"></script>

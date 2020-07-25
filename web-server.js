@@ -9,8 +9,12 @@ function requestHandler(req, res) {
   let fileName = req.url === '/' ? null : req.url
   let localFolder = __dirname;
 
-  if (fileName && fileName.includes('.css')) {
-    res.setHeader('Content-Type', 'text/css');
+  if (fileName) {
+    if (fileName.includes('.css')) {
+      res.setHeader('Content-Type', 'text/css');
+    } else if(fileName.includes('.json')) {
+      res.setHeader('Content-Type', 'application/json');
+    }
   }
 
     content = localFolder + (fileName || '/index.html');

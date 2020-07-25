@@ -1,0 +1,24 @@
+.breadcrumb {
+  font-size: var(--medium);
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.breadcrumb__link {
+  cursor: pointer;
+}
+
+.breadcrumb__arrow {
+  display: inline-block;
+  width: 20px;
+  height: 12px;
+  margin: 0 5px 0 10px;
+}
+
+.breadcrumb__arrow:before {
+  content: '\21FE';
+}
+
+.breadcrumb .breadcrumb__arrow:last-child {
+  display: none;
+}

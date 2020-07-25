@@ -1,0 +1,78 @@
+/*------------------------------------*\
+  #THEME SETTINGS
+\*------------------------------------*/
+
+:root {
+  /*  ---- colors ----  */
+  --red: #a2000d;
+  --white: #ffffff;
+  --gray: #1b1b1b;
+  --dark-gray: #0b0b0b;
+  --black: #000000;
+
+  /* ---- font sizes ---- */
+  --tiny: 14px;
+  --small: 16px;
+  --medium: 20px;
+  --large: 28px;
+  
+  /*  ---- others ----  */
+  --content-width: calc(100% - 60px);
+}
+
+/*------------------------------------*\
+  #THEME COLOUR CLASSES
+\*------------------------------------*/
+
+.red-bg {
+  background: var(--red);
+  color: var(--white);
+}
+
+.gray-bg {
+  background: var(--gray);
+  color: var(--white);
+}
+
+.dark-gray-bg {
+  background: var(--dark-gray);
+  color: var(--white);
+}
+
+.black-bg {
+  background: var(--black);
+  color: var(--white);
+}
+
+/*------------------------------------*\
+  #THEME FONTS
+\*------------------------------------*/
+
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/SFProText-Regular.ttf') format('opentype');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+/*------------------------------------*\
+  #THEME FONT CLASSES
+\*------------------------------------*/
+
+
+.tiny-font {
+  font-size: var(--tiny);
+}
+
+.small-font {
+  font-size: var(--small);
+}
+
+.medium-font {
+  font-size: var(--medium);
+}
+
+.large-font {
+  font-size: var(--large);
+}

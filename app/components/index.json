@@ -1,0 +1,12 @@
+[
+  "app/components/templates/layout.js",
+
+  "app/components/molecules/count/count.js",
+  "app/components/molecules/breadcrumbs/breadcrumbs.js",
+  
+  
+  "app/components/organisms/cart/product-model.js",
+  "app/components/organisms/cart/cart-service.js",
+  "app/components/organisms/cart/cart.js"
+  
+]

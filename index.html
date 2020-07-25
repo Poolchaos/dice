@@ -7,22 +7,27 @@
   <title>Dice</title>
   <meta name="description" content="Are you looking for something? We have it.">
   <meta name="Phillip-Juan van der Berg" content="SitePoint">
-
-  <link rel="stylesheet" href="app/index.css?v=1.0">
+  
+  <link rel="icon" href="./app/assets/images/favicon-16x16.png" type="image/gif" sizes="16x16">
+  <link rel="stylesheet" href="./app/index.css">
 </head>
 
-<body>
+<body class="gray-bg">
 
-    <d-layout>
-      <div slot="header">
-        my header
-      </div>
-      <div slot="content">
-        my content
-      </div>
-    </d-layout>
+  <d-layout>
+    <div slot="header" class="wrapper">
+      <span class="medium-font spaced-2">ORDER<span class="title">FORM</span></span>
+      <d-count></d-count>
+    </div>
 
-  <script type="text/javascript" src="app/files.js"></script>
-  <script type="text/javascript" src="app/main.js"></script>
+    <div slot="content">
+      <d-cart></d-cart>
+    </div>
+  </d-layout>
+
+  <script type="text/javascript" src="app/components/component-base.js"></script>
+  <script type="text/javascript" src="app/services/state-service.js"></script>
+  <script type="text/javascript" src="app/services/request-service.js"></script>
+  <script type="text/javascript" src="app/app.js"></script>
 </body>
 </html>

@@ -1,0 +1,15 @@
+.cart {
+  display: flex;
+  float: right;
+}
+
+.cart__count {
+  display: inline-block;
+  background: var(--white);
+  color: var(--black);
+  height: 20px;
+  width: 20px;
+  margin: 0 5px;
+  padding-top: 1px;
+  font-weight: bold;
+}

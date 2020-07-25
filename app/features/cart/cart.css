@@ -19,12 +19,13 @@
 .cart__body--table-head {
   font-size: 14px;
   margin-bottom: 20px!important;
+  padding-top: 15px!important;
+  padding-bottom: 15px!important;
 }
 
 .row {
   position: relative;
   display: flex;
-  height: 80px;
   margin: 20px 0;
   padding: 10px 30px;
 }
@@ -34,11 +35,17 @@
   align-self: center;;
 }
 
+.row:not(.cart__body--table-head) {
+  height: 80px;
+}
+
+/* todo: clean up these direct child styles */
+
 .row > div:first-child {
   width: 100px;
 }
 
-.col {
+.cart__body--table-col {
   position: relative;
 }
 
@@ -57,9 +64,9 @@
   background: var(--gray)
 }
 
-.row > div:first-child,
-.row > div:last-child {
-  width: 100px;
+.row .cart__body--table-col:first-child,
+.row .cart__body--table-col:last-child {
+  width: 80px;
 }
 
 .label {
@@ -78,7 +85,7 @@
 
 .remove:before, .remove:after {
   position: absolute;
-  left: 15px;
+  right: 20px;
   content: ' ';
   height: 15px;
   width: 2px;

@@ -4,12 +4,6 @@ class Cart extends ComponentBase {
   STYLES = 'app/features/cart/cart.css';
   ROW_TEMPLATE = 'app/features/cart/templates/table-row.html';
 
-  products = [
-    { id: '434556256', name: 'Jet Ski',     price: '1500',  quantity: 1, image: 'https://picsum.photos/seed/picsum/80/80' },
-    { id: '345245865', name: 'Bubble Wrap', price: '440',   quantity: 1, image: 'https://picsum.photos/seed/picsum/80/80' },
-    { id: '987123654', name: 'Crock-Pot',   price: '55',    quantity: 1, image: 'https://picsum.photos/seed/picsum/80/80' }
-  ];
-
   constructor() {
     super();
     this.init();
@@ -17,29 +11,35 @@ class Cart extends ComponentBase {
 
   async init() {
     await super.init();
+    this.getCart();
+  }
+
+  async getCart() {
+    // todo: implement state management
+    this.products = await cartService.getCart();
     this.renderCardItems();
   }
 
   async renderCardItems() {
-    let template = await RequestService.get(this.ROW_TEMPLATE);
-    console.log(' ::>> template >>>> ', template);
-
     let rows = [];
-    this.products.forEach(product => rows.push(this.createRow(template, product)));
+    let rowHTMLString = await RequestService.get(this.ROW_TEMPLATE);
+    this.products.forEach(product => rows.push(this.createRow(rowHTMLString, product)));
 
     let table = super.getElements('cartTable');
     if (table) {
-      rows.forEach(row => table.innerHTML += row);
+      Promise.all(rows.map(row => table.innerHTML += row))
+        .then(() => {
+          let buttons = super.getElements(null, 'remove');
+
+        });
     }
   }
 
-  createRow(template, product) {
-    template = template.replace('{{id}}', product.id);
-    template = template.replace('{{name}}', product.name);
-    template = template.replace('{{price}}', product.price);
-    template = template.replace('{{quantity}}', product.quantity);
-    template = template.replace('{{image}}', product.image);
-    return template;
+  createRow(rowHTMLString, product) {
+    for (let prop in product) {
+      rowHTMLString = rowHTMLString.replace(`{{${prop}}}`, product[prop]);
+    }
+    return rowHTMLString;
   }
 }
 

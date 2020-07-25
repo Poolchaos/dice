@@ -1,17 +1,17 @@
 <div class="container-small row rounded">
-  <div>
+  <div class="cart__body--table-col">
     <image src="{{image}}" class="rounded" width="80" height="80" />
   </div>
-  <div class="col">
+  <div class='cart__body--table-col'>
     <div>{{name}}</div>
     <div class="label">{{id}}</div>
   </div>
-  <div class="col h-centered">{{price}}</div>
-  <div class="col">
+  <div class="cart__body--table-col h-centered">{{price}}</div>
+  <div class="cart__body--table-col">
     <div class="count container-small centered rounded black-bg">{{quantity}}</div>
     <span class="label underlined hoverable">Update</span>
   </div>
-  <div class="col">
-    <div class="remove hoverable centered"></div>
+  <div class="cart__body--table-col" style="text-align: center;">
+    <div class="remove hoverable centered" style="position: relative;display: inline-block;"></div>
   </div>
 </div>

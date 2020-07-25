@@ -55,20 +55,26 @@ class ComponentBase extends HTMLElement {
     this.shadow.appendChild(link);
   }
 
-  getElements(selector) {
+  getElements(id, className) {
     let children = this.shadow.children;
 
     for(var child of children) {
       
-      if (child.id === selector) {
+      if (id && child.id === id) {
         return child;
       }
 
-      let node = child.querySelector('#' + selector)
-      if (node) {
-        return node;
+      let elements;
+      if (id) {
+        elements = child.querySelector('#' + id)
+      } else if (className) {
+        elements = child.querySelectorAll('.' + className)
+      }
+
+      if (elements) {
+        return elements;
       }
     }
-    console.warn(`Element with selector '${selector}' not found.`);
+    console.warn(`Element with selector '${id}' not found.`);
   }
 }

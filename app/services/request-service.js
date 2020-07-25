@@ -4,9 +4,10 @@ class RequestService {
       'app/shared/theme.css',
       'app/shared/globals.css'
     ],
-    JS: [
+    JS: [ // todo: think of naming
       { path: 'app/components/index.json',  config: true },
       { path: 'app/features/index.json',    config: true }
+
     ]
   };
 
@@ -15,7 +16,11 @@ class RequestService {
       let xhr = new XMLHttpRequest();
       xhr.onreadystatechange = function() {
           if (xhr.readyState == XMLHttpRequest.DONE) {
-              resolve(xhr.responseText);
+            if (url.includes('.json')) {
+              resolve(JSON.parse(xhr.responseText));
+              return;
+            }
+            resolve(xhr.responseText);
           }
       }
       xhr.open('GET',  url, true);
@@ -57,8 +62,8 @@ class RequestService {
   }
 
   static async getConfigResource(path) {
-    const resp = await RequestService.get(path);
-    const resources = JSON.parse(resp);
+    const resources = await RequestService.get(path);
+    // const resources = JSON.parse(resp);
     
     if (Array.isArray(resources)) {
       resources.forEach(entry => RequestService.loadJSResource(entry));

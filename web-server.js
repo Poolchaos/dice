@@ -19,9 +19,6 @@ function requestHandler(req, res) {
       if (!err) {
         res.end(contents);
       }
-      //  else {
-      //   console.dir(err);
-      // };
     });
 };
  

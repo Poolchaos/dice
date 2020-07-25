@@ -120,7 +120,7 @@ input[type=number] {
   position: relative;
   display: flex;
   justify-content: space-between;
-  font-size: var(--medium);
+  font-size: var(--small);
 }
 
 .cart__footer--left,
@@ -156,6 +156,7 @@ input[type=number] {
 .cart__footer--right .label,
 .cart__footer--right .title {
   display: inline-block;
+  opacity: 1;
 }
 
 .cart__footer--right .title {

@@ -4,3 +4,7 @@ html, body {
   font-family: Arial;
 }
 
+.title {
+  font-weight: 800;
+  letter-spacing: 1px;
+}

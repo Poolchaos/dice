@@ -25,10 +25,10 @@
   text-align: center;
 }
 
-.h-centered {
-  align-self: center;
-}
-
 .underlined {
   text-decoration: underline;;
+}
+
+.h-centered {
+  align-self: center;
 }

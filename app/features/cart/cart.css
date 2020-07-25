@@ -24,19 +24,33 @@
 .row {
   position: relative;
   display: flex;
-  margin: 20px;
+  height: 80px;
+  margin: 20px 0;
   padding: 10px 30px;
 }
 
 .row > div {
-  position: relative;
   width: 30%;
+  align-self: center;;
+}
+
+.row > div:first-child {
+  width: 100px;
+}
+
+.col {
+  position: relative;
+}
+
+.row img {
+  margin-left: -30px;
+  margin-top: 3px;
 }
 
 .row:nth-child(odd):not(.cart__body--table-head) {
   background: var(--black);
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .row:nth-child(odd):not(.cart__body--table-head) .count {
@@ -48,20 +62,12 @@
   width: 100px;
 }
 
-.row > div image {
-  width: 80px;
-  height: 100px;
-}
-
 .label {
   font-size: 12px;
   opacity: 0.5;
 }
 
 .remove {
-  position: absolute;
-  left: 20px;
-  top: 10px;
   width: 10px;
   height: 10px;
 }

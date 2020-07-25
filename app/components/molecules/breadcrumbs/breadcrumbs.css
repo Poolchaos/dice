@@ -1,5 +1,6 @@
 .breadcrumb {
   padding: 10px;
+  font-size: 12px;
 }
 
 .breadcrumb__link {
@@ -9,7 +10,7 @@
 .breadcrumb__arrow {
   display: inline-block;
   width: 20px;
-  height: 20px;
+  height: 12px;
   margin: 0 5px 0 10px;
 }
 

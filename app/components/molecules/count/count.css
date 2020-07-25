@@ -6,12 +6,15 @@
 
 .cart__count {
   display: inline-block;
-  height: 17px;
+  height: 16px;
   width: 20px;
   border-radius: 10px;
   background: var(--white);
   color: var(--gray);
   margin: 0 5px;
+  padding-top: 1px;
   font-weight: bold;
   text-align: center;
 }
+
+/* todo: clean up styles */

@@ -4,6 +4,8 @@ class Cart extends ComponentBase {
   STYLES = 'app/features/cart/cart.css';
   ROW_TEMPLATE = 'app/features/cart/templates/table-row.html';
 
+  products = [];
+
   constructor() {
     super();
     this.init();
@@ -11,13 +13,16 @@ class Cart extends ComponentBase {
 
   async init() {
     await super.init();
-    this.getCart();
+    this.subscribeToProducts();
   }
 
-  async getCart() {
-    // todo: implement state management
-    this.products = await cartService.getCart();
-    this.renderCardItems();
+  async subscribeToProducts() {
+    stateService.onChange.products(products => {
+      this.products = products;
+      this.renderCardItems();
+    });
+
+    cartService.getCart();
   }
 
   async renderCardItems() {
@@ -30,7 +35,7 @@ class Cart extends ComponentBase {
       Promise.all(rows.map(row => table.innerHTML += row))
         .then(() => {
           let buttons = super.getElements(null, 'remove');
-
+          // todo: add click events
         });
     }
   }

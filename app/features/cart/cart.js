@@ -1,5 +1,7 @@
 class Cart extends ComponentBase {
 
+  static get observedAttributes() { return ['products']; }
+
   VIEW = 'app/features/cart/cart.html';
   STYLES = 'app/features/cart/cart.css';
   ROW_TEMPLATE = 'app/features/cart/templates/table-row.html';
@@ -13,16 +15,15 @@ class Cart extends ComponentBase {
 
   async init() {
     await super.init();
-    this.subscribeToProducts();
+    cartService.getCart();
   }
 
-  async subscribeToProducts() {
-    stateService.onChange.products(products => {
-      this.products = products;
+  attributeChangedCallback(attrName, oldVal, newVal) {
+    if (attrName === 'products') {
+      if (typeof newVal === 'string' && newVal.length > 0)
+      this.products = JSON.parse(newVal);
       this.renderCardItems();
-    });
-
-    cartService.getCart();
+    }
   }
 
   async renderCardItems() {
@@ -36,6 +37,11 @@ class Cart extends ComponentBase {
         .then(() => {
           let buttons = super.getElements(null, 'remove');
           // todo: add click events
+          buttons.forEach(button => {
+            button.addEventListener('click', () => {
+              
+            });
+          });
         });
     }
   }

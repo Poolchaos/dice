@@ -1,5 +1,7 @@
 class Count extends ComponentBase {
 
+  static get observedAttributes() { return ['items-count']; }
+
   VIEW = 'app/components/molecules/count/count.html';
   STYLES = 'app/components/molecules/count/count.css';
 
@@ -12,17 +14,16 @@ class Count extends ComponentBase {
 
   async init() {
     await super.init();
-    this.subscribeToProducts();
   }
 
-  async subscribeToProducts() {
-    this.setCount(stateService.itemsCount);
-
-    stateService.onChange.itemsCount(itemsCount => this.setCount(itemsCount));
+  attributeChangedCallback(attrName, oldVal, newVal) {
+    if (attrName === 'items-count') {
+      if (typeof newVal === 'string' && newVal.length > 0)
+      this.setCount(newVal);
+    }
   }
 
   async setCount(count) {
-    this.itemsCount = count;
     let el = await super.getElements('count');
     el.innerHTML = count;
   }

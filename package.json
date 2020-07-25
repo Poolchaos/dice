@@ -2,7 +2,7 @@
   "name": "dice",
   "version": "1.0.0",
   "description": "Are you looking for something? We have it.",
-  "main": "app/main.js",
+  "main": "app/app.js",
   "scripts": {
     "start": "node web-server.js",
     "test": "todo"

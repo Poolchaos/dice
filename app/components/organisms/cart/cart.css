@@ -30,7 +30,7 @@
   padding: 10px 30px;
 }
 
-.row > div {
+.row .cart__body--table-col {
   width: 30%;
   align-self: center;;
 }
@@ -39,9 +39,8 @@
   height: 80px;
 }
 
-/* todo: clean up these direct child styles */
 
-.row > div:first-child {
+.row .cart__body--table-col:first-child {
   width: 100px;
 }
 

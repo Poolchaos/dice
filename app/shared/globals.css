@@ -17,6 +17,10 @@
   border-radius: 5px;
 }
 
+.rounded-full {
+  border-radius: 100%;
+}
+
 .hoverable {
   cursor: pointer;
 }

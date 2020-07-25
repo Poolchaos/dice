@@ -7,6 +7,12 @@ class Cart extends ComponentBase {
   ROW_TEMPLATE = 'app/components/organisms/cart/templates/table-row.html';
 
   products = [];
+  
+  formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0
+  });
 
   constructor() {
     super();
@@ -59,7 +65,13 @@ class Cart extends ComponentBase {
 
   createRow(rowHTMLString, product) {
     for (let prop in product) {
-      rowHTMLString = rowHTMLString.replace(new RegExp(`{{${prop}}}`, 'g'), product[prop]);
+      let value = product[prop];
+
+      if (prop === 'price') {
+        value = this.formatter.format(value);
+      }
+
+      rowHTMLString = rowHTMLString.replace(new RegExp(`{{${prop}}}`, 'g'), value);
     }
     return rowHTMLString;
   }

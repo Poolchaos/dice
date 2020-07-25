@@ -44,6 +44,7 @@ class Cart extends ComponentBase {
       const subTotal = this.formatter.format(this.cart.subTotal);
       const tax = this.formatter.format(this.cart.tax);
       const total = this.formatter.format(this.cart.total);
+      
       this.renderContent('subTotal', subTotal);
       this.renderContent('tax', tax);
       this.renderContent('total', total);

@@ -27,11 +27,11 @@ class RequestService {
     });
   }
 
-  static delete() {
+  static delete(url, data) {
     // delete implementation here
   }
 
-  static put() {
+  static put(url, data) {
     // update implementation here
   }
   
@@ -70,7 +70,6 @@ class RequestService {
 
   static async getConfigResource(path) {
     const resources = await RequestService.get(path);
-    // const resources = JSON.parse(resp);
     
     if (Array.isArray(resources)) {
       resources.forEach(entry => RequestService.loadJSResource(entry));

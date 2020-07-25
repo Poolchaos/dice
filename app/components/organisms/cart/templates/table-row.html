@@ -2,15 +2,19 @@
   <div class="cart__body--table-col">
     <image src="{{image}}" class="rounded" width="110" height="110" />
   </div>
+
   <div class='cart__body--table-col'>
     <div>{{name}}</div>
     <div class="label small-font spaced-1">{{id}}</div>
   </div>
+
   <div class="cart__body--table-col h-centered">{{price}}</div>
+  
   <div class="cart__body--table-col">
     <input type="number" class="centered rounded borderless black-bg single-digit quantity small-container" value="{{quantity}}" />
     <span class="update underlined hoverable tiny-font" data-id="{{id}}">Update</span>
   </div>
+
   <div class="cart__body--table-col centered">
     <div class="remove hoverable centered" data-id="{{id}}"></div>
   </div>

@@ -2,9 +2,9 @@ class Cart extends ComponentBase {
 
   static get observedAttributes() { return ['products']; }
 
-  VIEW = 'app/features/cart/cart.html';
-  STYLES = 'app/features/cart/cart.css';
-  ROW_TEMPLATE = 'app/features/cart/templates/table-row.html';
+  VIEW = 'app/components/organisms/cart/cart.html';
+  STYLES = 'app/components/organisms/cart/cart.css';
+  ROW_TEMPLATE = 'app/components/organisms/cart/templates/table-row.html';
 
   products = [];
 

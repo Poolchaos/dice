@@ -1,6 +1,7 @@
 .breadcrumb {
-  padding: 10px;
-  font-size: 12px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  padding: 15px 10px;
 }
 
 .breadcrumb__link {

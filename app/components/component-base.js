@@ -1,7 +1,7 @@
 class ComponentBase extends HTMLElement {
 
-  THEME_STYLES = 'app/shared/theme.css';
-  SHARED_STYLES = 'app/shared/globals.css';
+  THEME_STYLES = 'app/assets/styles/theme.css';
+  SHARED_STYLES = 'app/assets/styles/globals.css';
   shadow;
   rootElement;
 

@@ -1,8 +1,8 @@
 class RequestService {
   static RESOURCES = {
     CSS: [
-      'app/shared/theme.css',
-      'app/shared/globals.css'
+      'app/assets/styles/theme.css',
+      'app/assets/styles/globals.css'
     ],
     CONFIG: [
       { path: 'app/components/index.json', config: true },

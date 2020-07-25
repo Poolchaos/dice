@@ -1,7 +1,7 @@
 .breadcrumb {
   font-size: var(--medium);
   margin-bottom: 20px;
-  padding: 15px 10px;
+  padding: 10px;
 }
 
 .breadcrumb__link {

@@ -1,14 +1,13 @@
 .cart {
   display: flex;
   float: right;
-  font-size: var(--medium);
 }
 
 .cart__count {
   display: inline-block;
   background: var(--white);
   color: var(--black);
-  height: 16px;
+  height: 20px;
   width: 20px;
   margin: 0 5px;
   padding-top: 1px;

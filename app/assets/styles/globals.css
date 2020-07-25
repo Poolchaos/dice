@@ -48,3 +48,11 @@
 .hidden {
   display: none!important;
 }
+
+.spaced-1 {
+  letter-spacing: 1px;
+}
+
+.spaced-2 {
+  letter-spacing: 2px;
+}

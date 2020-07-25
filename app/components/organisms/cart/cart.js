@@ -112,7 +112,11 @@ class Cart extends ComponentBase {
   updateCount(link) {
     const productId = link.getAttribute('data-id');
     let input = link.parentNode.querySelector('input');
-    cartService.updateItem(productId, parseInt(input.value));
+    if (input.value) {
+      cartService.updateItem(productId, parseInt(input.value));
+    } else {
+      console.warn('The quantity needs a value and should be a integer.');
+    }
   }
 
   addRemoveButtonListeners() {
@@ -133,13 +137,10 @@ class Cart extends ComponentBase {
     if (this.cart.products.length > 0) {
       if (!emptyListNotifier.className.includes(' hidden')) {
         emptyListNotifier.className += ' hidden';
-        console.log(' ::>> hide >>>> ');
       }
       
     } else {
-      console.log(' ::>> show >>>> ', emptyListNotifier);
       emptyListNotifier.className = emptyListNotifier.className.replace(' hidden', '');
-      // emptyListNotifier.setAttribute('class', );
     }
   }
 }

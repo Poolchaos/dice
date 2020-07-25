@@ -5,8 +5,8 @@ class RequestService {
       'app/shared/globals.css'
     ],
     CONFIG: [
-      { path: 'app/components/index.json' }
-
+      { path: 'app/components/index.json', config: true },
+      'app/error/error-handler.js'
     ]
   };
 
@@ -38,7 +38,7 @@ class RequestService {
   
   static loadJSResource(file) {
 
-    if (file.path) {
+    if (file.config) {
       RequestService.getConfigResource(file.path);
     } else {
       RequestService.add.script(file);

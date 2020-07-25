@@ -1,5 +1,5 @@
 class App {
-  products = [];
+  cart;
 
   constructor() {
     RequestService.loadResources();
@@ -7,8 +7,8 @@ class App {
   }
 
   subscribeToDataChanges() {
-    stateService.onChange.products(products => {
-      this.products = products;
+    stateService.onChange.cart(cart => {
+      this.cart = cart;
       this.bindCount();
       this.bindProducts();
     });
@@ -17,14 +17,14 @@ class App {
   bindCount() {
     let count = document.querySelector('d-count');
     if (count) {
-      count.setAttribute('items-count', this.products.length);
+      count.setAttribute('items-count', this.cart.products.length);
     }
   }
 
   bindProducts() {
     let cart = document.querySelector('d-cart');
     if (cart) {
-      cart.setAttribute('products', JSON.stringify(this.products));
+      cart.setAttribute('cart', JSON.stringify(this.cart));
     }
   }
 }

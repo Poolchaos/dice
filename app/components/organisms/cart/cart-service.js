@@ -1,17 +1,32 @@
 class CartService {
 
-  productsRoute = 'app/_mock-data/cart.json';
+  cartRoute = 'app/_mock-data/cart.json';
   
   async getCart() {
-    stateService.products = await RequestService.get(this.productsRoute);
+    stateService.cart = await RequestService.get(this.cartRoute);
   }
 
   async removeCartItem(productId) {
     // stateService.products = await RequestService.delete(productId);
 
     // Mock delete
-    stateService.products = stateService.products.filter(item =>
-      item.id !== productId);
+    let subTotal = 0;
+    const tax = stateService.tax;
+
+    const products = stateService.products.filter(item => {
+      if (item.id === productId) {
+        return false;
+      }
+      subTotal += item.price;
+      return true;
+    });
+    const total = subTotal + tax;
+    stateService.cart = {
+      subTotal,
+      tax,
+      total,
+      products
+    };
   }
 
   async updateItem(productId, itemCount) {

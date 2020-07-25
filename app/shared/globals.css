@@ -32,3 +32,15 @@
 .h-centered {
   align-self: center;
 }
+
+.borderless {
+  border: 0;
+}
+
+.pull-right {
+  float: right;
+}
+
+.hidden {
+  display: none!important;
+}

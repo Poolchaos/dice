@@ -11,6 +11,8 @@
   --black: #000000;
 
   /* ---- font sizes ---- */
+  --default: 16px;
+  
   --small: 12px;
   --medium: 14px;
   --large: 30px;

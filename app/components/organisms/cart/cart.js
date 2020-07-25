@@ -1,12 +1,12 @@
 class Cart extends ComponentBase {
 
-  static get observedAttributes() { return ['products']; }
+  static get observedAttributes() { return ['cart']; }
 
   VIEW = 'app/components/organisms/cart/cart.html';
   STYLES = 'app/components/organisms/cart/cart.css';
   ROW_TEMPLATE = 'app/components/organisms/cart/templates/table-row.html';
 
-  products = [];
+  cart;
   
   formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -25,19 +25,40 @@ class Cart extends ComponentBase {
   }
 
   async attributeChangedCallback(attrName, oldVal, newVal) {
-    if (attrName === 'products') {
-      this.products = JSON.parse(newVal);
+    if (attrName === 'cart') {
+
+      this.cart = JSON.parse(newVal);
+      this.renderTotal();
 
       if (oldVal) {
         this.updateRenderedItems();
       } else {
-        this.renderCardItems();
+        this.renderCartItems();
       }
+      this.checkForItems();
+    }
+  }
+
+  renderTotal() {
+    if (this.cart) {
+      const subTotal = this.formatter.format(this.cart.subTotal);
+      const tax = this.formatter.format(this.cart.tax);
+      const total = this.formatter.format(this.cart.total);
+      this.renderContent('subTotal', subTotal);
+      this.renderContent('tax', tax);
+      this.renderContent('total', total);
+    }
+  }
+
+  renderContent(selector, value) {
+    let element = super.getElements(selector);
+    if (element) {
+      element.innerHTML = value;
     }
   }
 
   updateRenderedItems() {
-    const ids = this.products.map(item => item.id);
+    const ids = this.cart.products.map(item => item.id);
     const elements = super.getElements(null, 'row-template');
     
     if (elements) {
@@ -51,10 +72,10 @@ class Cart extends ComponentBase {
     }
   }
 
-  async renderCardItems() {
+  async renderCartItems() {
     let rows = [];
     let rowHTMLString = await RequestService.get(this.ROW_TEMPLATE);
-    this.products.forEach(product => rows.push(this.createRow(rowHTMLString, product)));
+    this.cart.products.forEach(product => rows.push(this.createRow(rowHTMLString, product)));
 
     let table = super.getElements('cartTable');
     if (table) {
@@ -104,6 +125,22 @@ class Cart extends ComponentBase {
   removeItem(button) {
     const productId = button.getAttribute('data-id');
     cartService.removeCartItem(productId);
+  }
+
+  checkForItems() {
+    let emptyListNotifier = super.getElements('emptyList');
+    
+    if (this.cart.products.length > 0) {
+      if (!emptyListNotifier.className.includes(' hidden')) {
+        emptyListNotifier.className += ' hidden';
+        console.log(' ::>> hide >>>> ');
+      }
+      
+    } else {
+      console.log(' ::>> show >>>> ', emptyListNotifier);
+      emptyListNotifier.className = emptyListNotifier.className.replace(' hidden', '');
+      // emptyListNotifier.setAttribute('class', );
+    }
   }
 }
 

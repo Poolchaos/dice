@@ -3,7 +3,7 @@
     <div class="cart__head--left">
       <span class="cart__head--left-title">Your Cart</span>
     </div>
-    <div class="cart__head--right">
+    <div class="pull-right">
       <d-breadcrumbs></d-breadcrumbs>
     </div>
   </div>
@@ -16,17 +16,45 @@
         <div class='cart__body--table-col'>Quantity</div>
         <div class='cart__body--table-col'>Remove</div>
       </div>
+      <!-- todo: display no items  -->
+      <div id="emptyList" class="small-container rounded row">
+        <span class="h-centered">You have 0 items in your cart.</span>
+      </div>
     </div>
   </div>
   <div class="cart__footer">
     <div class="cart__footer--left">
-      left
+      <div class="title">Additional Comments</div>
+      <textarea class="rounded black-bg container borderless"></textarea>
     </div>
     <div class="cart__footer--center">
-      center
+      <div class="title">Delivery Info</div>
+      <div class="label">
+        All orders will be sent by Special Delivery, which will be insured 
+        and will need to be signed for. Allow 4-6 weeks for delivery.
+      </div>
     </div>
     <div class="cart__footer--right">
-      right
+      <div>
+        <div class="label">Sub Total</div>
+        <div id="subTotal" class="title pull-right"></div>
+      </div>
+      <div>
+        <div class="label">Tax</div>
+        <div id="tax" class="title pull-right"></div>
+      </div>
+      <div class="rounded black-bg">
+        <div class="label">Total</div>
+        <div id="total" class="title pull-right"></div>
+      </div>
+      <div class="spacer"></div>
+      <button class="container red-bg rounded borderless h-centered">Checkout</button>
+      <div class="centered">
+        <div class="small-container">
+          <span class="label">or</span> 
+          <span class="underlined hoverable label">Continue Shopping</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -1,19 +1,24 @@
-[{
-  "id": "434556256",
-  "name": "Jet Ski",
-  "price": 1500,
-  "quantity": 1,
-  "image": "https://picsum.photos/seed/picsum/80/80"
-}, {
-  "id": "345245865",
-  "name": "Bubble Wrap",
-  "price": 440,
-  "quantity": 1,
-  "image": "https://picsum.photos/seed/picsum/80/80"
-}, {
-  "id": "987123654",
-  "name": "Crock-Pot",
-  "price": 55,
-  "quantity": 1,
-  "image": "https://picsum.photos/seed/picsum/80/80"
-}]
+{
+  "subTotal": 1995,
+  "tax": 0,
+  "total": 1995,
+  "products": [{
+    "id": "434556256",
+    "name": "Jet Ski",
+    "price": 1500,
+    "quantity": 1,
+    "image": "https://picsum.photos/seed/picsum/80/80"
+  }, {
+    "id": "345245865",
+    "name": "Bubble Wrap",
+    "price": 440,
+    "quantity": 1,
+    "image": "https://picsum.photos/seed/picsum/80/80"
+  }, {
+    "id": "987123654",
+    "name": "Crock-Pot",
+    "price": 55,
+    "quantity": 1,
+    "image": "https://picsum.photos/seed/picsum/80/80"
+  }]
+}

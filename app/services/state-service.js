@@ -11,11 +11,9 @@ class StateService {
   }
 
   set products(products) {
-    this._products = products;
+    this._products = products.map(product => new ProductModel(product));
     this._itemsCount = products.length;
-
-    this.subscribers.products.forEach(callback => callback(products));
-    this.subscribers.itemCount.forEach(callback => callback(products.length));
+    this.triggerUpdate();
   }
 
   get itemCount() {
@@ -25,6 +23,11 @@ class StateService {
   onChange = {
     products: callback => this.subscribers.products.push(callback),
     itemsCount: callback => this.subscribers.itemCount.push(callback)
+  }
+
+  triggerUpdate() {
+    this.subscribers.products.forEach(callback => callback(this.products));
+    this.subscribers.itemCount.forEach(callback => callback(this.products.length));
   }
 }
 

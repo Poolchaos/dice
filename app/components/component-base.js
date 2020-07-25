@@ -77,4 +77,11 @@ class ComponentBase extends HTMLElement {
     }
     console.warn(`Element with selector '${id}' not found.`);
   }
+
+  getParent(element, className) {
+    if (className && element.className.includes(className)) {
+      return element;
+    }
+    return this.getParent(element.parentNode, className);
+  }
 }

@@ -9,17 +9,19 @@ class App {
   subscribeToDataChanges() {
     stateService.onChange.products(products => {
       this.products = products;
-      console.log(' products => ', products);
+      this.bindCount();
       this.bindProducts();
     });
   }
-
-  bindProducts() {
+  
+  bindCount() {
     let count = document.querySelector('d-count');
     if (count) {
-      console.log(' ::>> setCount', this.products.length);
       count.setAttribute('items-count', this.products.length);
     }
+  }
+
+  bindProducts() {
     let cart = document.querySelector('d-cart');
     if (cart) {
       cart.setAttribute('products', JSON.stringify(this.products));

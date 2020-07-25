@@ -27,6 +27,10 @@ class RequestService {
       xhr.send(null);
     });
   }
+
+  static delete() {
+    // delete implementation here
+  }
   
   static loadResources() {
     RequestService.RESOURCES.CSS.forEach(file => RequestService.add.style(file));

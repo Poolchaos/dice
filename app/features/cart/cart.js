@@ -18,11 +18,30 @@ class Cart extends ComponentBase {
     cartService.getCart();
   }
 
-  attributeChangedCallback(attrName, oldVal, newVal) {
+  async attributeChangedCallback(attrName, oldVal, newVal) {
     if (attrName === 'products') {
-      if (typeof newVal === 'string' && newVal.length > 0)
       this.products = JSON.parse(newVal);
-      this.renderCardItems();
+
+      if (oldVal) {
+        this.updateRenderedItems();
+      } else {
+        this.renderCardItems();
+      }
+    }
+  }
+
+  updateRenderedItems() {
+    const ids = this.products.map(item => item.id);
+    const elements = super.getElements(null, 'row-template');
+    
+    if (elements) {
+      elements.forEach(element => {
+        const productId = element.getAttribute('data-id');
+
+        if (!ids.includes(productId)) {
+          element.parentNode.removeChild(element)
+        }
+      });
     }
   }
 
@@ -34,23 +53,45 @@ class Cart extends ComponentBase {
     let table = super.getElements('cartTable');
     if (table) {
       Promise.all(rows.map(row => table.innerHTML += row))
-        .then(() => {
-          let buttons = super.getElements(null, 'remove');
-          // todo: add click events
-          buttons.forEach(button => {
-            button.addEventListener('click', () => {
-              
-            });
-          });
-        });
+        .then(() => this.addClickListeners());
     }
   }
 
   createRow(rowHTMLString, product) {
     for (let prop in product) {
-      rowHTMLString = rowHTMLString.replace(`{{${prop}}}`, product[prop]);
+      rowHTMLString = rowHTMLString.replace(new RegExp(`{{${prop}}}`, 'g'), product[prop]);
     }
     return rowHTMLString;
+  }
+
+  addClickListeners() {
+    this.addUpdateQuantityListeners();
+    this.addRemoveButtonListeners();
+  }
+
+  addUpdateQuantityListeners() {
+    let updateLinks = super.getElements(null, 'update');
+    updateLinks.forEach(link => {
+      link.addEventListener('click', () => this.updateCount(link));
+    });
+  }
+
+  updateCount(link) {
+    const productId = link.getAttribute('data-id');
+    let input = link.parentNode.querySelector('input');
+    cartService.updateItem(productId, parseInt(input.value));
+  }
+
+  addRemoveButtonListeners() {
+    let buttons = super.getElements(null, 'remove');
+    buttons.forEach(button => {
+      button.addEventListener('click', () => this.removeItem(button));
+    });
+  }
+
+  removeItem(button) {
+    const productId = button.getAttribute('data-id');
+    cartService.removeCartItem(productId);
   }
 }
 

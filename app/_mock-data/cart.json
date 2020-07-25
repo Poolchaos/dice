@@ -7,18 +7,18 @@
     "name": "Jet Ski",
     "price": 1500,
     "quantity": 1,
-    "image": "https://picsum.photos/seed/picsum/110/110"
+    "image": "./app/assets/images/jet-ski.jpg"
   }, {
     "id": "345245865",
     "name": "Bubble Wrap",
     "price": 440,
     "quantity": 1,
-    "image": "https://picsum.photos/seed/picsum/110/110"
+    "image": "./app/assets/images/bubble-wrap.jpg"
   }, {
     "id": "987123654",
     "name": "Crock-Pot",
     "price": 55,
     "quantity": 1,
-    "image": "https://picsum.photos/seed/picsum/110/110"
+    "image": "./app/assets/images/crock-pot.jpg"
   }]
 }

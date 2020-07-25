@@ -23,8 +23,8 @@ class Breadcrumbs extends ComponentBase {
 
   createLinkNode(route) {
     let link = document.createElement('a');
-    link.addEventListener('click', (event) => {
-      console.log(' link clicked ', event);
+    link.addEventListener('click', () => {
+      console.log('Navigate to not existent route due to routes not being implemented:', route.name);
     });
     link.text = route.name;
 

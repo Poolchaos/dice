@@ -7,15 +7,21 @@ class CartService {
   }
 
   async removeCartItem(productId) {
-    // stateService.products = await RequestService.delete(productId);
+    // stateService.products = await RequestService.delete(this.cartRoute, { productId });
 
     this.mockUpdate(true, null, productId);
   }
 
   async updateItem(productId, itemCount) {
-    // stateService.products = await RequestService.put(productId, itemsCount);
+    // stateService.products = await RequestService.put(this.cartRoute, { productId, itemsCount });
 
     this.mockUpdate(null, true, productId, itemCount);
+  }
+
+  checkout(cart) {
+    // stateService.products = await RequestService.put(this.cartRoute, cart);
+
+    console.log('Checking out cart: ', cart);
   }
 
   mockUpdate(remove, update, productId, itemCount) {

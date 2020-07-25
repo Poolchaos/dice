@@ -100,6 +100,7 @@ class Cart extends ComponentBase {
   addClickListeners() {
     this.addUpdateQuantityListeners();
     this.addRemoveButtonListeners();
+    this.addCheckoutListener();
   }
 
   addUpdateQuantityListeners() {
@@ -129,6 +130,25 @@ class Cart extends ComponentBase {
   removeItem(button) {
     const productId = button.getAttribute('data-id');
     cartService.removeCartItem(productId);
+  }
+
+  addCheckoutListener() {
+    let button = super.getElements('checkout');
+    button.addEventListener('click', () => this.checkout());
+  }
+
+  checkout() {
+    let cart = this.cart;
+    let commentElement = super.getElements('comments');
+    const sanitized = this.sanitize(commentElement.value);
+    const additionalComment = commentElement.value;
+    cart.additionalComment = additionalComment;
+
+    cartService.checkout(cart);
+  }
+
+  sanitize(text) {
+    return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   }
 
   checkForItems() {

@@ -9,6 +9,11 @@
   --gray: #1b1b1b;
   --dark-gray: #0b0b0b;
   --black: #000000;
+
+  /* ---- font sizes ---- */
+  --small: 12px;
+  --medium: 14px;
+  --large: 30px;
   
   /*  ---- others ----  */
   --content-width: calc(100% - 60px);

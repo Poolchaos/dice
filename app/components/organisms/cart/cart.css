@@ -9,15 +9,19 @@
 }
 
 .cart__head--left-title {
-  font-size: 30px;
+  font-size: var(--large);
 }
 
 .cart__head--right {
   float: right;
 }
 
+.cart__body {
+  margin-bottom: 50px;
+}
+
 .cart__body--table-head {
-  font-size: 14px;
+  font-size: var(--medium);
   margin-bottom: 20px!important;
   padding-top: 15px!important;
   padding-bottom: 15px!important;
@@ -70,7 +74,7 @@
 }
 
 .label {
-  font-size: 12px;
+  font-size: var(--small);
   opacity: 0.5;
 }
 
@@ -120,4 +124,9 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+.cart__footer {
+  display: flex;
+  justify-content: space-between;
 }

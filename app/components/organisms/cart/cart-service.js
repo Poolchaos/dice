@@ -9,7 +9,7 @@ class CartService {
   async removeCartItem(productId) {
     // stateService.products = await RequestService.delete(productId);
 
-    // Mock update
+    // Mock delete
     stateService.products = stateService.products.filter(item =>
       item.id !== productId);
   }

@@ -30,6 +30,10 @@ class RequestService {
   static delete() {
     // delete implementation here
   }
+
+  static put() {
+    // update implementation here
+  }
   
   static loadResources() {
     RequestService.RESOURCES.CSS.forEach(file => RequestService.add.style(file));

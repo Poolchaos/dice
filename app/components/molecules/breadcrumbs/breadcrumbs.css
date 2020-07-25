@@ -1,5 +1,5 @@
 .breadcrumb {
-  font-size: 14px;
+  font-size: var(--medium);
   margin-bottom: 20px;
   padding: 15px 10px;
 }

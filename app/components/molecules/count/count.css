@@ -1,7 +1,7 @@
 .cart {
   display: flex;
   float: right;
-  font-size: 14px;
+  font-size: var(--medium);
 }
 
 .cart__count {

@@ -21,7 +21,7 @@ class CartService {
   checkout(cart) {
     // stateService.products = await RequestService.put(this.cartRoute, cart);
     console.log('%c ---------- Checking out cart ---------- ', 'background: #a2000d;padding: 5px 10px;color: #fff;');
-    console.log(cart);
+    console.log(new RequestModel(cart));
     console.log('%c ---------- Checking out cart ---------- ', 'background: #a2000d;padding: 5px 10px;color: #fff;');
   }
 

@@ -6,7 +6,8 @@ class RequestService {
     ],
     CONFIG: [
       { path: 'app/components/index.json', config: true },
-      'app/error/error-handler.js'
+      'app/error/error-handler.js',
+      'app/services/request-model.js'
     ]
   };
 
